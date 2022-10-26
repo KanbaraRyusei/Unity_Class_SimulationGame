@@ -9,15 +9,15 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     public TileData TileData => _data;
     public bool OnPlayer => _onPlayer;
 
-    private Tile[] _tiles;
-
     private TileData _data;
+
+    private Tile[] _tiles;
 
     private bool _onPlayer = false;
 
-    public void SetTile(int height, int width)
+    public void SetTileData(TileData data)
     {
-        _data = new TileData(height, width);
+        _data = data;
     }
 
     public void SetTiles()

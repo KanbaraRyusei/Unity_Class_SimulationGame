@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileData
+public class TileData : MonoBehaviour
 {
     public int Height => _height;
     public int Width => _width;
     public int StepCount => _stepCount;
 
-    int _height;
-    int _width;
+    private int _height;
+    private int _width;
 
-    int _stepCount;
+    private int _stepCount;
 
-    public TileData(int height, int width)
+    public void SetHeight(int height)
     {
         _height = height;
+        Debug.Log(height + "Height");
+    }
+
+    public void SetWidth(int width)
+    {
         _width = width;
+        Debug.Log(width + "Width");
     }
 
     public void SetStepCount(int count)
