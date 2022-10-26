@@ -9,7 +9,7 @@ public class TileSetUpManager : MonoBehaviour
     {
         var tiles = FindObjectsOfType<Tile>();
         Debug.Log(tiles.Length);
-        for(int i = 0; i < tiles.Length; i++)
+        for (int i = 0; i < tiles.Length; i++)
         {
             if(tiles[i].TryGetComponent(out TileData tileData))
             {
@@ -46,29 +46,23 @@ public class TileSetUpManager : MonoBehaviour
         oldZ.OrderByDescending(x => x);
         Debug.Log(oldX.Count);
         Debug.Log(oldZ.Count);
-        for(int j = 0; j < oldZ.Count; j++)
+        for (int i = 0; i < oldZ.Count; i++)
         {
-            List<Tile> t = new List<Tile>();
-            for (int n = 0; n < tiles.Length; n++)
+            for (int j = 0; j < tiles.Length; j++)
             {
-                if(oldZ[j] == tiles[n].gameObject.transform.position.z)
+                if(oldZ[i] == tiles[j].gameObject.transform.position.z)
                 {
-                    t.Add(tiles[n]);
+                    tiles[j].TileData.SetHeight(i);
                 }
             }
-            for(int u = 0; u < oldZ.Count; u++)
-            {
-                t[u].TileData.SetHeight(j);
-            }
         }
-        for(int m = 0; m < oldX.Count; m++)
+        for(int i = 0; i < oldX.Count; i++)
         {
-            List<Tile> t = new List<Tile>();
-            for(int o = 0; o < tiles.Length; o++)
+            for(int j = 0; j < tiles.Length; j++)
             {
-                if(tiles[o].gameObject.transform.position.x == oldX[m])
+                if(tiles[j].gameObject.transform.position.x == oldX[i])
                 {
-                    tiles[o].TileData.SetWidth(m);
+                    tiles[j].TileData.SetWidth(i);
                 }
             }
         }
